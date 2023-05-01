@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.72.0">
+    <title >El bar de Mou</title>
+    
+
+
+    {% load static %}
+    <!-- Bootstrap core CSS -->
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleMenuPrincipal.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    
+
+    
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    
+</head>
+
+<body>
+    
+    <div class="container">
+        <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 pt-1">
+                    
+                </div>
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo" href="{%url 'menuPrincipal'%}">El Bar de Mou</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'logout' %}">cerrar sesion</a>
+                    </li>
+                    <li>
+                        <a href="#">{{ user.username }}</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'login' %}" class="btn btn-sm btn-outline-primary">Iniciar sesion</a>
+                        <a href="{% url 'RecuperarClave' %}" class="btn btn-sm btn-outline-secondary">Recuperar</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="registro">Registrarse</a>
+                    </li>
+                    {% endif %}
+                    
+                   
+
+
+                    
+                    
+                    
+                </div>
+            </div>
+        </header>
+
+        <div class="nav-scroller py-1 mb-2">
+            <nav class="nav d-flex justify-content-between">
+                <a class="p-2 link-secondary" href="#">Home</a>
+                <a class="p-2 link-secondary" href="#">Foros</a>
+               
+                
+            </nav>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <div class="tenor-gif-embed" data-postid="7576992" data-share-method="host" data-aspect-ratio="1" data-width="8%"><a href="https://tenor.com/view/terror-eye-scary-horror-creepy-gif-7576992">怖い　こわい　目 GIF</a>from <a href="https://tenor.com/search/terror-gifs">Terror GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        </div>
+
+        <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+            <div class="col-md-6 px-0">
+                <h1 class="display-4 font-italic">Niño de tres años muere tras caer de un piso 14 en Independencia.</h1>
+                <p class="lead my-3">Niño de tres años muere tras caer de un piso 14 en Independencia Alrededor de las 20.00 horas de este martes, en  la comuna de Independencia, un menor de edad de tres años falleció tras caer de un edificio en la comuna de Independencia, en Santiago...</p>
+                <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continua leyendo...</a></p>
+            </div>
+        </div>
+        <div>
+            <p style="font-size: 30px;color: white;">Tendencias</p>
+        </div>
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div
+                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Mundo</strong>
+                        <h3 class="mb-0"; style="color:white">Baja el dolar</h3>
+                        <div class="mb-1 text-muted">Nov 12</div>
+                        <p class="card-text mb-auto"style="color:white">El dólar regresó a la órbita de los $ 800 este viernes dejando tras de sí la segunda mayor
+                             caída semanal del año, ya que las positivas cifras de actividad en China y en Chile terminaron poniendo.... </p>
+                        <a href="#" class="stretched-link">Continua leyendo</a>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div
+                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success">Conspiraciones</strong>
+                        <h3 class="mb-0"style="color:white">Porque la tierra es plana?</h3>
+                        <div class="mb-1 text-muted">Nov 11</div>
+                        <p class="mb-auto"style="color:white">Se han dado cuenta que a pesar de que los disque expertos dicen que la tierra es plana cuando uno mira a los lejos no se ve la curvatura,
+                        ayer me subi al costanera center para comprobar mi...</p>
+                        <a href="#" class="stretched-link">Continua leyendo</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="pb-4 mb-4 font-italic border-bottom"; style="color: white">
+                    Foros mas recientes
+                </h3>
+
+                <div class="blog-post" style="color: white;">
+                    <h2 class="blog-post-title">CATEGORIA</h2>
+                    <h2>Conspiraciones</h2>
+                    <hr>
+                    <p class="blog-post-meta">febrero 1, 2023 by <a href="#">Mark</a></p>
+                  
+                    <h4>Elon Musk tuitea enlace a una teoría de conspiración infundada </h4>
+                    
+                    <p>WASHINGTON —  Elon Musk tuiteó el domingo un enlace a un rumor infundado sobre el asalto al esposo de la presidenta de la Cámara de Representantes de Estados Unidos, Nancy Pelosi, días después de que su adquisición de Twitter avivó las preocupaciones de que la red social dejara de intentar limitar la desinformación y el discurso de odio.
+                        El tuit de Musk, <strong>que borró poco después</strong>, incluía un enlace a un artículo de un sitio web radical, el Santa Monica Observer, un medio que había afirmado anteriormente que Hillary Clinton murió el 11 de septiembre y fue reemplazada por una doble.</p>
+                        
+                    <blockquote>
+                        <p> En este caso, el artículo recicló una afirmación infundada de que la vida personal de Paul Pelosi, el esposo de la presidenta, de alguna manera fue un factor en el ataque de un intruso la semana pasada en la casa del matrimonio en San Francisco, a pesar de que no hay pruebas que sustenten esa afirmación.</p>
+                    </blockquote>
+                    <p><a href="https://www.latimes.com/espanol/entretenimiento/articulo/2022-10-31/elon-musk-tuitea-enlace-a-una-teoria-de-conspiracion-infundada">Bibliografia</a></p>
+
+                    <hr>
+                    <p class="blog-post-meta">enero 13, 2023 by <a href="#">Joaquin</a></p>
+                    <h4>“ES MEJOR QUEMARSE QUE DESAPARECER” </h4>
+
+                    <h5>¿Se falsificó la nota de suicidio de Kurt Cobain?</h5>
+                    <p>La perturbadora escena del suicidio y la muerte del cantante inspiró a todos los fans de la conspiración. Una parte de ellos incluso contemplaron la opción de que fuera asesinado por su propia esposa.</p>
+
+                    <p>documental de 2015 Soaked In Bleach ofrece una alternativa muy inquietante a la narrativa oficial que rodea el suicidio de Cobain. La película narra sus últimos días, principalmente a través de Tom Grant, el investigador que Love había contratado para encontrarlo.</p>
+                    <blockquote>    
+                        <p>Grant ya había sido objeto de un documental similar, Kurt & Courtney, en 1998, en el que afirmaba que Love solo lo contrató para investigar, y que en ningún caso debía ser considerada como sospe. Su teoría es que Cobain fue asesinado en una conspiración orquestada por Love y que el caso debería reabrirse.</p>
+                        <p>teorías de la conspiración, aunque tentadoras, no cambian el hecho de que Kurt Cobain está muerto. Como mínimo, sus luchas de larga data con la depresión y el consumo de drogas, así como una nota íntima de suicidio, constituyen un caso bastante convincente para el suicidio.</p>
+                    </blockquote>
+                    <p><a href="https://los40.com/los40/2022/04/05/los40classic/1649153627_009857.html">Bibliografia</a></p>
+                    <hr>
+                    <hr>
+                    <div class="blog-post" style="color:rgb(255, 2, 2)">
+                        <h2 class="blog-post-title">CATEGORIA</h2>
+                        <h2>Deportes</h2>
+                        <hr>
+                        <p class="blog-post-meta">Diciembre 23, 2022 by <a href="#">Gustavo</a></p>
+                    
+                        <h4>Duda falló una clara ocasión de gol contra el Levante porque vio un fantasma</h4>
+                        
+                        <blockquote>
+                        <p>Sergio Paulo Barbosa “Duda”, futbolista portugués que juega actualmente en el Málaga CF, falló una clara ocasión de gol contra el Levante porque vio un fantasma. El portugués aseguró que algo se le cruzó  delante. Más tarde, unos trabajadores del estadio del Levante, el Estadio Ciutat de Valencia, dijeron que habían visto un ente cerca de esta portería por la noche. Además, las investigaciones permitieron saber que en ese mismo lugar donde Duda falló el gol, se tiraron cenizas de seguidores del Levante que fallecieron en accidentes de tráfico siguiendo al club.</p>
+                        </blockquote>
+                        <a href="https://www.cuatro.com/cuarto-milenio/programas/temporada-11/programa-39/fenomenos-paranormales-futbol-cuarto-milenio_18_2198175091.html">Bibliografia</a>
+                        <hr>
+
+                        <p class="blog-post-meta">Diciembre 23, 2022 by <a href="#">Miguel</a></p>
+                        
+                        <h4>Zinedine Zidane volvió a la selección francesa tras una visión “mística e irracional”</h4>
+                        
+                        <blockquote>
+                        <p>Zinedine Zidane decidió dejar la selección francesa. No obstante, regresó cuatro años después y al preguntarle el motivo en una entrevista, el ex jugador contestó que tuvo una visión mística e irracional venida de muy lejos. Escuchó una voz durante la noche y mantuvo una conversación de horas con esa figura que se le apareció en casa. Un mes después, al regresar a España, el francés quiso zanjar el tema diciendo que era su hermano esa persona con la que habló y que sus palabras se habían sacado de contexto y mal interpretado.</p>
+                        </blockquote>
+                        <a href="https://www.cuatro.com/cuarto-milenio/programas/temporada-11/programa-39/fenomenos-paranormales-futbol-cuarto-milenio_18_2198175091.html">Bibliografia</a>
+                        <hr>
+                    </div>  
+                </div>
+
+                <nav class="blog-pagination">
+                    <a class="btn btn-outline-primary" href="#">Actualizar</a>
+                    <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Mas posts</a>
+                </nav>
+
+            </div>
+
+            <aside id="myAside" class="col-md-4" style="position: fixed; bottom: 0; left: 2; right: 0;">
+                <div class="p-4 mb-3 bg-light rounded">
+                  <button id="closeButton" class="close">&times;</button>
+                  <h4 class="font-italic">Acerca de nosotros</h4>
+                  <p class="mb-0"><em>Somos una empresa que se especializada en soluciones informaticas desde el 2023, si necesitas nuestro servicios puedos contactarnos en el siguiente correo ejemplo@live.cl</em></p>
+                </div>
+              </aside>
+              
+              <script>
+                const myAside = document.getElementById("myAside");
+                const closeButton = document.getElementById("closeButton");
+          
+                closeButton.addEventListener("click", function() {
+                  myAside.style.display = "none";
+                });
+              </script>
+              
+
+                <div class="p-4">
+                    <h4 class="font-italic" style="color:rgb(1, 0, 0)">Archivos</h4>
+                    <ol class="list-unstyled mb-0">
+                        <li><a href="#">marzo 2023</a></li>
+                        <li><a href="#">Febrero 2023</a></li>
+                        <li><a href="#">enero 2023</a></li>
+                       
+                    </ol>
+                </div>
+
+                
+            </aside>
+
+        </div><!-- /.row -->
+
+    </main><!-- /.container -->
+
+    <footer class="blog-footer">
+        <p>
+            <a href="#">SUBIRAS</a>
+        </p>
+    </footer>
+
+
+
+</body>
+
+</html>
