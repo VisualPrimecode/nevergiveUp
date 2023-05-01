@@ -49,6 +49,7 @@
                     {% if user.is_authenticated %}
                     <li>
                         <a href="{% url 'logout' %}">cerrar sesion</a>
+                        <a href="{% url 'crear_publicacion' %}" class="btn btn-primary">Crear Publicación</a>
                     </li>
                     <li>
                         <a href="#">{{ user.username }}</a>

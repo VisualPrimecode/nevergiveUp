@@ -3,7 +3,7 @@ from .forms import CustomUserCreatioForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import Categoria, Publicacion
-
+from .forms import PublicacionForm
 # Create your views here.      
 def MenuPrincipal(request):
     return render(request,'core/menuPrincipal.html')
@@ -30,7 +30,21 @@ def registro(request):
             return redirect('menuPrincipal')
         data["form"]=formulario
     return render(request, 'registration/registro.html',data)
-
+from django.contrib.auth.decorators import login_required
+@login_required
+def crear_publicacion(request):
+    categorias = Categoria.objects.all()
+    if request.method == 'POST':
+        form = PublicacionForm(request.POST)
+        if form.is_valid():
+            publicacion = form.save(commit=False)
+            publicacion.autor = request.user
+            publicacion.save()
+            messages.success(request,'Publicación creada con éxito.')
+            return redirect('menuPrincipal')
+    else:
+        form = PublicacionForm()
+    return render(request, 'core/crear_publicacion.html', {'form': form})
 def listadoPublicaciones(request):
     Publicaciones = Publicacion.objects.all()
     contexto={"Publicaciones":Publicaciones}
