@@ -31,6 +31,10 @@ def registro(request):
         data["form"]=formulario
     return render(request, 'registration/registro.html',data)
 
+def listadoPublicaciones(request):
+    Publicaciones = Publicacion.objects.all()
+    contexto={"Publicaciones":Publicaciones}
+    return render(request,'core/listadoPublicaciones.html',contexto)
 
 
 
