@@ -44,7 +44,7 @@
             <table border="1">
                 <tr><td>Titulo</td><td>Categoria</td><td>Autor</td><td>Fecha</td></tr>
                 {% for pub in Publicaciones%}
-                    <tr><td>{{pub.titulo}}</td><td>{{pub.categoria}}</td><td>{{pub.autor}}</td><td>{{pub.fecha_creacion}}</td></tr>
+                    <tr><td>{{pub.titulo}}</td><td>{{pub.categoria.nombre}}</td><td>{{pub.autor}}</td><td>{{pub.fecha_creacion}}</td></tr>
                 {% endfor %}
 
             </table>    
