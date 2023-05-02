@@ -63,6 +63,38 @@ def listadoPublicaciones(request):
     contexto={"Publicaciones":Publicaciones}
     return render(request,'core/listadoPublicaciones.html',contexto)
 
+def form_mod_Publicacion(request, aux_id):
+    pub = Publicacion.objects.get(id=aux_id)
+    datos = {
+        'form':form_publicacion(instance=pub)
+    }
+    if request.method=='POST':
+        formulario=form_publicacion(data=request.POST, instance=pub)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje']="Modificado correctamente"
+    return render(request, 'core/form_mod_Publicacion.html',datos)
+
+def lista_mod_Publicaciones(request):
+    publicaciones = Publicacion.objects.all()
+    datos = {
+        "publicaciones":publicaciones
+    }
+    return render(request,'core/lista_mod_Publicaciones.html',datos)
+
+def form_del_Publicacion(request, aux_id):
+    publi = Publicacion.objects.get(id=aux_id)
+    datos = {
+        'form':form_publicacion(instance=publi)
+    }
+    if request.method=='POST':
+        formulario= form_publicacion(data=request.POST, instance=publi)
+        publi.delete()
+        datos['mensaje']="Eliminado correctamente"
+    return render(request,'core/form_del_Publicacion.html',datos)
+
+
+
       
 
 
