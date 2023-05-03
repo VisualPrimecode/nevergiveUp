@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CustomUserCreatioForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from .models import Categoria, Publicacion
+from .models import Categoria, Publicacion,Respuesta
 from .forms import PublicacionForm,form_publicacion,form_respuesta
 from django.contrib.auth.decorators import login_required
 # Create your views here.      
@@ -118,7 +118,19 @@ def form_Respuesta(request):
             datos['mensaje']="Guardado correctamente"
     return render(request,'core/form_Respuesta.html',datos)  
 
+def detalle_Publicacion(request, publicacion_id):
+    # Obtenemos la publicación y sus respuestas asociadas
+    publicacionaux = Publicacion.objects.get(id=publicacion_id)
+    respuestas = Respuesta.objects.filter(publicacion=publicacionaux)
 
+    # Creamos un contexto con los datos de la publicación y sus respuestas
+    context = {
+        'publicacion': publicacionaux,
+        'respuestas': respuestas,
+    }
+
+    # Renderizamos la plantilla HTML con el contexto
+    return render(request, 'detalle_Publicacion.html', context)
 
       
 
