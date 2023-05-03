@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
-from .models import Publicacion, Categoria
+from .models import Publicacion, Respuesta
 
 # class UsuarioForm(forms.ModelForm):
 
@@ -31,6 +31,16 @@ class form_publicacion(ModelForm):
             'contenido': forms.TextInput(attrs={'class':'form-control'}),
             'categoria': forms.Select(attrs={'class':'form-control'}),
             'autor': forms.Select(attrs={'class':'form-control'}),
+        }
+
+class form_respuesta(ModelForm):
+    class Meta:
+        model = Respuesta
+        fields = ['contenido','autor','publicacion']
+        widgets = {
+            'contenido': forms.TextInput(attrs={'class':'form-control'}),
+            'autor': forms.Select(attrs={'class':'form-control'}),
+            'publicacion': forms.Select(attrs={'class':'form-control'}),
         }
     
    
