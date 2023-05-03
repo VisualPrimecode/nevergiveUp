@@ -3,7 +3,7 @@ from .forms import CustomUserCreatioForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import Categoria, Publicacion
-from .forms import PublicacionForm,form_publicacion
+from .forms import PublicacionForm,form_publicacion,form_respuesta
 from django.contrib.auth.decorators import login_required
 # Create your views here.      
 def MenuPrincipal(request):
@@ -92,6 +92,31 @@ def form_del_Publicacion(request, aux_id):
         publi.delete()
         datos['mensaje']="Eliminado correctamente"
     return render(request,'core/form_del_Publicacion.html',datos)
+
+from django.core import serializers
+from django.http import HttpResponse
+
+
+def publicaciones_json():
+    publicaciones = Publicacion.objects.all()
+    publicaciones_json = serializers.serialize('json', publicaciones)
+    response = HttpResponse(content_type='application/json')
+    response['Content-Disposition'] = 'attachment; filename="publicaciones.json"'
+    response.write(publicaciones_json)
+
+    return response
+
+@login_required
+def form_Respuesta(request):
+    datos = {
+        'form':form_respuesta()
+    }
+    if request.method=='POST':
+        formulario=form_respuesta(request.POST)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje']="Guardado correctamente"
+    return render(request,'core/form_Respuesta.html',datos)  
 
 
 
