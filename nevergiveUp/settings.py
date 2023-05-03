@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'nevergiveUp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': '127.0.0.1:1521/basededatosglobal',
+        'NAME': '127.0.0.1:1521/orcl',
         'USER': 'c##prueba',
         'PASSWORD':'prueba',
         'TEST':{
