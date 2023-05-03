@@ -11,8 +11,6 @@ urlpatterns = [
     path('form_del_Publicacion/<aux_id>',form_del_Publicacion, name="form_del_Publicacion"),
     path('lista_mod_Publicaciones/',lista_mod_Publicaciones, name="lista_mod_Publicaciones"),
     path('RecuperarClave/',RecuperarClave, name="RecuperarClave"),
-    path('publicaciones_por_categoria/<int:categoria_id>/',publicaciones_por_categoria, name="publicaciones_por_categoria"),
     path('listadoPublicaciones/',listadoPublicaciones,name="listadoPublicaciones"),
-    path('crear_publicacion/',crear_publicacion, name='crear_publicacion'),
     path('publicaciones/json/', publicaciones_json, name='publicaciones_json'),
 ]

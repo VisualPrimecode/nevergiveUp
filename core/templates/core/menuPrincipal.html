@@ -52,8 +52,11 @@
                     <li class="nav-item"><span class="nav-separator">|</span></li>
                     <li><a href="lista_mod_Publicaciones" class="btn btn-sm btn-outline-primary">Lista Publicacion</a></li>
                     <li class="nav-item"><span class="nav-separator">|</span></li>
+                    <li><a href="{% url 'form_Respuesta' %}" class="btn btn-sm btn-outline-primary">Crear respuesta</a></li>
+                    <li class="nav-item"><span class="nav-separator">|</span></li>
                     <li><a href="{% url 'logout' %}" class="btn btn-sm btn-outline-primary">Cerrar Sesion</a></li>
                     <li class="nav-item"><span class="nav-separator">|</span></li>
+                    
                     </ul>
 
                     <a href="#">{{ user.username }}</a>
