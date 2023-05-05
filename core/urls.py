@@ -4,7 +4,7 @@ urlpatterns = [
     path('',MenuPrincipal, name="menuPrincipal"),
     path('accounts/',include('django.contrib.auth.urls')),
     path('registro/',registro, name="registro"),
-    path('form_Publicacion/',form_Publicacion, name="form_Publicacion"),
+    path('form_Publi',form_Publicacion, name="form_Publicacion"),
     path('form_Respuesta/',form_Respuesta, name="form_Respuesta"),
     path('detalle_Publicacion/<publicacion_id>',detalle_Publicacion, name="detalle_Publicacion"),
     path('form_mod_Publicacion/<aux_id>',form_mod_Publicacion, name="form_mod_Publicacion"),

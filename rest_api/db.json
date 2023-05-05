@@ -1,0 +1,19 @@
+[  {
+    "titulo": "PORQUE ES Azí",
+    "contenido": "el contenidoviene aca : hola mundo",
+    "categoria": 1,
+    "autor": 61
+    },
+      {
+    "titulo": "nuevopost",
+    "contenido": "hechodesdeelapi",
+    "categoria": 1,
+    "autor": 41
+    },
+      {
+    "titulo": "usuariorest",
+    "contenido": "contenidonuevoaquezi",
+    "categoria": 1,
+    "autor": 41
+    }
+]
