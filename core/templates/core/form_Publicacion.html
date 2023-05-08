@@ -5,16 +5,49 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Registro Publicacion</title>
           {% load static %}
-          <link rel="stylesheet" type="text/css" href="{% static 'css/stylePublicacion.css' %}">
+          <link rel="stylesheet" type="text/css" href="{% static 'css/styleform_Publicacion.css' %}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
       </head>
 <body>
-    <div class="row">
-        <h1>Crear Publicacion</h1>
+    <div class="container1">
+        <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 pt-1">
+                    
+                </div>
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo" href="{%url 'menuPrincipal'%}">El Bar de Mou</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    
+                    {% if user.is_authenticated %}
+                    
+                    <ul class="nav">
+                        <li><p id="nombreusuarios">Usuario: {{ user.username }}.</p></li>
+                        <li class="nav-item"><span class="nav-separator">-----</span></li>
+                        <li><a href="{% url 'logout' %}">Cerrar Sesion</a></li>
+                    </ul>
+                    
+                    
+                    
+                    
+                    {% else %}
+                    <li>
+                        <a href="{% url 'login' %}" class="btn btn-sm btn-outline-primary">Iniciar sesion</a>
+                        <a href="{% url 'RecuperarClave' %}" class="btn btn-sm btn-outline-secondary">Recuperar</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="registro">Registrarse</a>
+                    </li>
+                    {% endif %}             
+
+                </div>
+            </div>
+        </header>
     </div>
+    
     <div class="container">
+        <h1>Crea tu Publicación</h1>
         <div class="row">
             <form action="" method="post" id="formulario">
                 {% csrf_token %}
@@ -26,14 +59,15 @@
                     <input type="submit" class="btn btn-primary" id="enviar" value="Publicar">
                     <li class="nav-item"><span class="nav-separator">|</span></li>
                     <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
-                    <li class="nav-item"><span class="nav-separator">|</span></li>
-                    <a class="btn btn-primary" href="{% url 'menuPrincipal' %}">Volver al inicio</a>
                     
                 </ul>
                 
                 <div id="error" class="alert alert-danger" role="alert"></div>
 
             </form>
+                <a href="{% url 'form_Categoria' %}" class="btn btn-sm btn-outline-primary">Crear Categoria</a>
+                <a href="{% url 'form_Respuesta' %}" class="btn btn-sm btn-outline-primary">Responder una Publicación</a>
+                <a class="btn btn-primary" href="{% url 'menuPrincipal' %}">Volver al inicio</a>
             <div class="alert-success" role="alert">
                 {{mensaje}}
             </div>

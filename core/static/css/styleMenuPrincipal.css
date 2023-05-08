@@ -28,7 +28,10 @@ h5,
 h6 {
 	font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
-
+#nombreusuarios{
+	font-size: 15px;
+	color: white;
+}
 .display-4 {
 	font-size: 2.5rem;
 }

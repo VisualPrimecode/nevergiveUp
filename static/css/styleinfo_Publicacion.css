@@ -90,7 +90,10 @@ form textarea {
     height: 100px;
     resize: none;
 }
-
+#nombreusuarios{
+	font-size: 15px;
+	color: white;
+}
 form input[type="submit"] {
     display: block;
     width: 100%;

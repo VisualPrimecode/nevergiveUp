@@ -54,6 +54,10 @@ body{
     width: 100%;
 	
   }
+  #nombreusuarios{
+    font-size: 15px;
+    color: white;
+  }
 /* este es el style del boton ingresar*/  
 form input[type="submit"] {
     

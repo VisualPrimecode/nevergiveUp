@@ -5,7 +5,10 @@ body {
     margin: 0;
     padding: 0;
 }
-
+#nombreusuarios{
+	font-size: 15px;
+	color: white;
+}
 .container {
     width: 80%;
     margin: auto;

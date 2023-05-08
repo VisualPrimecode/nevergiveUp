@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Registro Respuesta</title>
+        <title>Registro Categoria</title>
           {% load static %}
-          <link rel="stylesheet" type="text/css" href="{% static 'css/styleform_Respuesta.css' %}">
+          <link rel="stylesheet" type="text/css" href="{% static 'css/styleform_Categoria.css' %}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
@@ -39,25 +39,36 @@
                 </div>
             </div>
         </header>
+       
+            
+      
+
     </div>
 
         
-  
+    
     <div class="container">
 
         <div class="row">
-            <h1>Responder a una Publicación</h1>
+         <h1>Crear Categoria</h1>   
             <form action="" method="post" id="formulario">
                 {% csrf_token %}
                 <div class="form-group">
                     {{form.as_table}}
                 </div>
-                <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
-                <input type="reset" class="btn btn-primary" id="limpiar" value="borrar">
+                <ul class="nav">
+                    
+                    <input type="submit" class="btn btn-primary" id="enviar" value="Crear Categoria">
+                    <li class="nav-item"><span class="nav-separator">|</span></li>
+                    <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar campos">
+                    
+                </ul>
+                
                 <div id="error" class="alert alert-danger" role="alert"></div>
 
             </form>
             <a href="{% url 'form_Publicacion' %}" class="btn btn-sm btn-outline-primary">Crear una Publicación</a>
+            <a href="{% url 'form_Respuesta' %}" class="btn btn-sm btn-outline-primary">Responder una Publicación</a>
             <a class="btn btn-primary" href="{% url 'menuPrincipal' %}">Volver al inicio</a>
             <div class="alert-success" role="alert">
                 {{mensaje}}

@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from .forms import CustomUserCreatioForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import Categoria, Publicacion,Respuesta
-from .forms import PublicacionForm,form_publicacion,form_respuesta
+from .forms import PublicacionForm,form_publicacion,form_respuesta,form_categoria
 from django.contrib.auth.decorators import login_required
 # Create your views here.      
 def MenuPrincipal(request):
@@ -11,11 +11,6 @@ def MenuPrincipal(request):
 
 def RecuperarClave(request):
     return render(request,'core/RecuperarClave.html')
-
-def publicaciones_por_categoria(request, categoria_id):
-    categoria = get_object_or_404(Categoria, id=categoria_id)
-    publicaciones = Publicacion.objects.filter(categoria=categoria).order_by('-fecha_creacion')
-    return render(request, 'foro/publicaciones_por_categoria.html', {'categoria': categoria, 'publicaciones': publicaciones})
 
 def registro(request):
     data={
@@ -42,7 +37,19 @@ def form_Publicacion(request):
         if formulario.is_valid:
             formulario.save()
             datos['mensaje']="Guardado correctamente"
-    return render(request,'core/form_Publicacion.html',datos)  
+    return render(request,'core/form_Publicacion.html',datos)
+
+@login_required
+def form_Categoria(request):
+    datos = {
+        'form':form_categoria()
+    }
+    if request.method=='POST':
+        formulario=form_categoria(request.POST)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje']="Guardado correctamente"
+    return render(request,'core/form_Categoria.html',datos)    
 
 @login_required
 def crear_publicacion(request):
@@ -58,10 +65,6 @@ def crear_publicacion(request):
         form = PublicacionForm()
     return render(request, 'core/crear_publicacion.html', {'form': form})
 
-def listadoPublicaciones(request):
-    Publicaciones = Publicacion.objects.all()
-    contexto={"Publicaciones":Publicaciones}
-    return render(request,'core/listadoPublicaciones.html',contexto)
 
 def form_mod_Publicacion(request, aux_id):
     pub = Publicacion.objects.get(id=aux_id)
@@ -75,12 +78,48 @@ def form_mod_Publicacion(request, aux_id):
             datos['mensaje']="Modificado correctamente"
     return render(request, 'core/form_mod_Publicacion.html',datos)
 
+def form_mod_Categoria(request, aux_id):
+    ctg = Categoria.objects.get(id=aux_id)
+    datos = {
+        'form':form_categoria(instance=ctg)
+    }
+    if request.method=='POST':
+        formulario=form_categoria(data=request.POST, instance=ctg)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje']="Modificado correctamente"
+    return render(request, 'core/form_mod_Categoria.html',datos)
+
+def form_mod_Respuesta(request, aux_id):
+    rsp = Respuesta.objects.get(id=aux_id)
+    datos = {
+        'form':form_respuesta(instance=rsp)
+    }
+    if request.method=='POST':
+        formulario=form_respuesta(data=request.POST, instance=rsp)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje']="Modificado correctamente"
+    return render(request, 'core/form_mod_Respuesta.html',datos)
+
 def lista_mod_Publicaciones(request):
     publicaciones = Publicacion.objects.all()
     datos = {
         "publicaciones":publicaciones
     }
     return render(request,'core/lista_mod_Publicaciones.html',datos)
+def lista_mod_Categorias(request):
+    ctg = Categoria.objects.all()
+    datos = {
+        "categorias":ctg
+    }
+    return render(request,'core/lista_mod_Categorias.html',datos)
+def lista_mod_Respuestas(request):
+    rsp = Respuesta.objects.all()
+    datos = {
+        "respuestas":rsp
+    }
+    return render(request,'core/lista_mod_Respuestas.html',datos)
 
 def form_del_Publicacion(request, aux_id):
     publi = Publicacion.objects.get(id=aux_id)
@@ -92,6 +131,30 @@ def form_del_Publicacion(request, aux_id):
         publi.delete()
         datos['mensaje']="Eliminado correctamente"
     return render(request,'core/form_del_Publicacion.html',datos)
+
+def form_del_Categoria(request, aux_id):
+    catg = Categoria.objects.get(id=aux_id)
+    datos = {
+        'form':form_categoria(instance=catg)
+    }
+    if request.method=='POST':
+        formulario= form_categoria(data=request.POST, instance=catg)
+        catg.delete()
+        datos['mensaje']="Categoria Eliminada correctamente"
+        
+    return render(request,'core/form_del_Categoria.html',datos)
+
+def form_del_Respuesta(request, aux_id):
+    rsp = Respuesta.objects.get(id=aux_id)
+    datos = {
+        'form':form_respuesta(instance=rsp)
+    }
+    if request.method=='POST':
+        formulario= form_respuesta(data=request.POST, instance=rsp)
+        rsp.delete()
+        datos['mensaje']="Respuesta Eliminada correctamente"
+        
+    return render(request,'core/form_del_Respuesta.html',datos)
 
 from django.core import serializers
 from django.http import HttpResponse
@@ -118,7 +181,7 @@ def form_Respuesta(request):
             datos['mensaje']="Guardado correctamente"
     return render(request,'core/form_Respuesta.html',datos)  
 
-def detalle_Publicacion(request, publicacion_id):
+def info_publicacion(request, publicacion_id):
     # Obtenemos la publicación y sus respuestas asociadas
     publicacionaux = Publicacion.objects.get(id=publicacion_id)
     respuestas = Respuesta.objects.filter(publicacion=publicacionaux)
@@ -130,7 +193,7 @@ def detalle_Publicacion(request, publicacion_id):
     }
 
     # Renderizamos la plantilla HTML con el contexto
-    return render(request, 'detalle_Publicacion.html', context)
+    return render(request, 'info_publicacion.html', context)
 
       
 

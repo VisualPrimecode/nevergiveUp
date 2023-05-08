@@ -50,21 +50,23 @@
                     <ul class="nav">
                     <li><a href="form_Publi" class="btn btn-sm btn-outline-primary">Crear Publicacion</a></li>
                     <li class="nav-item"><span class="nav-separator">|</span></li>
-                    <li><a href="lista_mod_Publicaciones" class="btn btn-sm btn-outline-primary">Lista Publicacion</a></li>
+                    <li><a href="lista_mod_Publicaciones" class="btn btn-sm btn-outline-primary">Lista de Publicaciones</a></li>
                     <li class="nav-item"><span class="nav-separator">|</span></li>
-                    <li><a href="{% url 'form_Respuesta' %}" class="btn btn-sm btn-outline-primary">Crear respuesta</a></li>
-                    <li class="nav-item"><span class="nav-separator">|</span></li>
-                    <li><a href="{% url 'logout' %}" class="btn btn-sm btn-outline-primary">Cerrar Sesion</a></li>
-                    <li class="nav-item"><span class="nav-separator">|</span></li>
-                    
-                    </ul>
+                    <li><a href="lista_mod_Respuestas" class="btn btn-sm btn-outline-primary">Crear Respuesta</a></li>
 
-                    <a href="#">{{ user.username }}</a>
+                    <li class="nav-item"><span class="nav-separator">|</span></li>
+                    <li><a href="lista_mod_Categorias" class="btn btn-sm btn-outline-primary">Gestion Categorias</a></li>
+                    <li class="nav-item"><span class="nav-separator">|</span></li>
+                    </ul>
+                    <ul>
+                    <li><p id="nombreusuarios">Usuario: {{ user.username }}.</p></li>
+                    <li><a href="{% url 'logout' %}">Cerrar Sesion</a></li>
+                    </ul>
+                    
                     </li>
                     {% else %}
                     <li>
                         <a href="{% url 'login' %}" class="btn btn-sm btn-outline-primary">Iniciar sesion</a>
-                        <a href="{% url 'RecuperarClave' %}" class="btn btn-sm btn-outline-secondary">Recuperar</a>
                         <a class="btn btn-sm btn-outline-secondary" href="registro">Registrarse</a>
                     </li>
                     {% endif %}             
@@ -81,6 +83,8 @@
                 
             </nav>
         </div>
+
+        
         <div style="display: flex; justify-content: center;">
             <div class="tenor-gif-embed" data-postid="7576992" data-share-method="host" data-aspect-ratio="1" data-width="8%"><a href="https://tenor.com/view/terror-eye-scary-horror-creepy-gif-7576992">怖い　こわい　目 GIF</a>from <a href="https://tenor.com/search/terror-gifs">Terror GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
         </div>

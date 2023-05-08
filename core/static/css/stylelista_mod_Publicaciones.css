@@ -17,7 +17,10 @@ body{
 
 	
 }
-
+#nombreusuarios{
+	font-size: 15px;
+	color: white;
+}
 .blog-header-logo:hover {
 	text-decoration: none;
 }
@@ -30,6 +33,7 @@ body{
     
 	
   }
+  
   
   /* Estilos para el formulario */
   form {

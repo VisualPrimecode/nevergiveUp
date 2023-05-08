@@ -38,7 +38,10 @@ body{
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
     padding: 20px;
   }
-  
+  #nombreusuarios{
+	font-size: 15px;
+	color: white;
+}
   
   
   form input[type="text"],
@@ -55,20 +58,7 @@ body{
 	
   }
 /* este es el style del boton ingresar*/  
-form input[type="submit"] {
-    
-    border: none;
-    
-    background-color: rgb(69, 209, 22);
-	color: white;
-    cursor: pointer;
-    font-size: 25px;
-	padding: 10px;
-    border-radius: 3px;
-	
-    transition: background-color 0.3s;
-  }
-  
+
   
   
  

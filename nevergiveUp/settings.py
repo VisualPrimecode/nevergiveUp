@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-r59u#@04f@brgwng-s129=gs7w5jxr@=q+8(7xp#^gooaqil0&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hidden-tor-41694.herokuapp.com','127.0.0.1']
 LOGIN_REDIRECT_URL='/'
 LOGOUT_REDIRECT_URL='/'
 
